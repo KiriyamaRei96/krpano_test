@@ -1,0 +1,133 @@
+﻿<krpano version="1.20.11" title="Virtual Tour">
+     onstart="jscall(reactKrpano.onStart())">
+	<!-- <include url="skin/vtourskin.xml" /> -->
+	<include url="%VIEWER%/plugins/depthmap_navigation.xml" />
+
+
+	
+	<scene name="scene_IMG_3836_Panorama" autoload="true">
+		
+		<!-- <control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
+
+		<preview url="panos/IMG_3836_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<sphere url="texture.png" />
+			<depthmap url="house.obj" rendermode="3dmodel" scale="100" textured="true" waitforload="true" />
+			
+		</image>
+
+	</scene>
+
+	<!-- <scene name="scene_IMG_3859_Panorama" title="IMG_3859 Panorama" onstart="" thumburl="panos/IMG_3859_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_3859_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_3859_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_IMG_3887_Panorama" title="IMG_3887 Panorama" onstart="" thumburl="panos/IMG_3887_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_3887_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_3887_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_IMG_3917_Panorama" title="IMG_3917 Panorama" onstart="" thumburl="panos/IMG_3917_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_3917_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_3917_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_IMG_3939_Panorama" title="IMG_3939 Panorama" onstart="" thumburl="panos/IMG_3939_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_3939_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_3939_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_IMG_3989_Panorama" title="IMG_3989 Panorama" onstart="" thumburl="panos/IMG_3989_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_3989_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_3989_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_IMG_4012_Panorama" title="IMG_4012 Panorama" onstart="" thumburl="panos/IMG_4012_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/IMG_4012_Panorama.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/IMG_4012_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		</image>
+
+	</scene> -->
+	<style name="button" type="text" css="text-align:center;" padding="4 8" mergedalpha="false" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, 0xFFFFFF);" />
+
+	<layer name="dollhouse" style="button" keep="true" html="Dollhouse"  width="80" align="bottom" y="50" onclick="dollhouse_view();" />
+	<layer name="resetview" style="button" keep="true" html="Reset View" width="80" align="bottom" y="20" onclick="resetview();" />
+	
+	
+		
+	<action name="dollhouse_view">
+		lookto(270,50,90,default,true,true);
+		tween(view.oz|view.tx|view.ty|view.tz,calc(''+1200+'|'+image.ox+'|'+image.oy+'|'+image.oz));
+		set(control.invert,true);
+	</action>
+
+	<action name="dollhouse_off">
+		tween(view.oz, 0.0, 2.0);
+		set(control.invert,false);
+	</action>
+
+	<action name="resetview">
+		set(control.invert,false);
+		tween(view.tx|view.ty|view.tz|view.ox|view.oy|view.oz|view.fisheye,
+			calc(''+image.ox+'|'+image.oy+'|'+image.oz+'|0|0|0|0'),
+			0.5,
+			default
+		);
+</action>
+</krpano>
