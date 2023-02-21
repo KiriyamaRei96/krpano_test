@@ -1,27 +1,29 @@
-﻿<krpano version="1.20.11" title="Virtual Tour">
-     onstart="jscall(reactKrpano.onStart())">
-	<!-- <include url="skin/vtourskin.xml" /> -->
-	<include url="%VIEWER%/plugins/depthmap_navigation.xml" />
-
+﻿<krpano  onstart="jscall(reactKrpano.onStart())"  version="1.21" title="Virtual Tour">
 
 	
-	<scene name="scene_IMG_3836_Panorama" autoload="true">
+	<include url="%VIEWER%/plugins/depthmap_navigation.xml" />
+	
+	
+<include url="%VIEWER%/plugins/depthmap_measure3d.xml" />
 		
-		<!-- <control bouncinglimits="calc:image.cube ? true : false" />
+	<depthmap_navigation collision="true" />
+	
 
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
+	<scene name="scene_IMG_3836_Panorama" title="IMG_3836 Panorama" onstart="" thumburl="panos/IMG_3836_Panorama.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
 
 		<preview url="panos/IMG_3836_Panorama.tiles/preview.jpg" />
 
 		<image>
-			<sphere url="texture.png" />
-			<depthmap url="house.obj" rendermode="3dmodel" scale="100" textured="true" waitforload="true" />
-			
+			<cube url="panos/IMG_3836_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
 		</image>
 
 	</scene>
 
-	<!-- <scene name="scene_IMG_3859_Panorama" title="IMG_3859 Panorama" onstart="" thumburl="panos/IMG_3859_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_IMG_3859_Panorama" title="IMG_3859 Panorama" onstart="" thumburl="panos/IMG_3859_Panorama.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -35,7 +37,7 @@
 
 	</scene>
 
-	<scene name="scene_IMG_3887_Panorama" title="IMG_3887 Panorama" onstart="" thumburl="panos/IMG_3887_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+	<scene name="scene_IMG_3887_Panorama" title="IMG_3887 Panorama" onstart="" thumburl="panos/IMG_3887_Panorama.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -48,70 +50,53 @@
 		</image>
 
 	</scene>
+	<style name="style_Plane" prealign="-0.0|-0.0|-0.0" ox="0.0" oy="59.63" oz="0.0" linkedscene="scene_Plane" />
+	<hotspot name="Hotspot1" type="text" keep="true" distorted="true" depth="0" depthbuffer="true" rotationorder="xzy"
+         width="70" height="70" scale="0.5"
+         bgcolor="0xFFFFFF" roundedge="35"
+         tx="-1.4727" ty="110" tz="-2.174" rx="-90.0" ry="-0.0" rz="0.0"
+         onclick="tween(view.tx,get(tx)) ;tween(view.tz,get(tz)) ;tween(view.ty,0);	tween(view.oz, 0.0, 2.0);set(control.invert,false)"
+         />
+		 <!-- trace('mouse clicked at ', mouse.x ,'/', mouse.y ,'/' , mouse.z) -->
+<hotspot name="Hotspot2" type="text" keep="true" distorted="true" depth="0" depthbuffer="true" rotationorder="xzy"
+         width="70" height="70" scale="0.5"
+         bgcolor="0xFFFFFF" roundedge="35"
+         tx="439.1794" ty="110" tz="101.8001" rx="-90.0" ry="-0.0" rz="0.0"
+         onclick="tween(view.tx,get(tx)) ;tween(view.tz,get(tz)) ;tween(view.ty,0);	tween(view.oz, 0.0, 2.0);set(control.invert,false)"
 
-	<scene name="scene_IMG_3917_Panorama" title="IMG_3917 Panorama" onstart="" thumburl="panos/IMG_3917_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
+         />
+<hotspot name="Hotspot3" type="text" keep="true" distorted="true" depth="0" depthbuffer="true" rotationorder="xzy"
+         width="70" height="70" scale="0.5"
+         bgcolor="0xFFFFFF" roundedge="35"
+         tx="-31.1796" ty="110" tz="-284.3894" rx="-90.0" ry="-0.0" rz="0.0"
+         onclick="tween(view.tx,get(tx)) ;tween(view.tz,get(tz)) ;tween(view.ty,0);	tween(view.oz, 0.0, 2.0);set(control.invert,false)"
+
+         />
+	<scene name="doll-house"  autoload='true' >
 		
-		<control bouncinglimits="calc:image.cube ? true : false" />
+		<!-- <control bouncinglimits="calc:image.cube ? true : false" />
 
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" /> -->
 
-		<preview url="panos/IMG_3917_Panorama.tiles/preview.jpg" />
+		<preview url="panos/IMG_3836_Panorama.tiles/preview.jpg" />
 
-		<image>
-			<cube url="panos/IMG_3917_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
+		<image  style='style_Plane' >
+			<!-- <sphere url="texture.png" /> -->
+			<!-- <depthmap url="house.obj" rendermode="3dmodel" scale="100" textured="true" waitforload="true" /> -->
+				<depthmap url="house.obj" texurl="texture.png" scale="100" hittest="true" />
 		</image>
 
 	</scene>
 
-	<scene name="scene_IMG_3939_Panorama" title="IMG_3939 Panorama" onstart="" thumburl="panos/IMG_3939_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/IMG_3939_Panorama.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/IMG_3939_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_IMG_3989_Panorama" title="IMG_3989 Panorama" onstart="" thumburl="panos/IMG_3989_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/IMG_3989_Panorama.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/IMG_3989_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
-		</image>
-
-	</scene>
-
-	<scene name="scene_IMG_4012_Panorama" title="IMG_4012 Panorama" onstart="" thumburl="panos/IMG_4012_Panorama.tiles/thumb.jpg" lat="" lng="" heading="">
-		
-		<control bouncinglimits="calc:image.cube ? true : false" />
-
-		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
-
-		<preview url="panos/IMG_4012_Panorama.tiles/preview.jpg" />
-
-		<image>
-			<cube url="panos/IMG_4012_Panorama.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,1792" />
-		</image>
-
-	</scene> -->
-	<style name="button" type="text" css="text-align:center;" padding="4 8" mergedalpha="false" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, 0xFFFFFF);" />
+<style name="button" type="text" css="text-align:center;" padding="4 8" mergedalpha="false" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, 0xFFFFFF);" />
 
 	<layer name="dollhouse" style="button" keep="true" html="Dollhouse"  width="80" align="bottom" y="50" onclick="dollhouse_view();" />
-	<layer name="resetview" style="button" keep="true" html="Reset View" width="80" align="bottom" y="20" onclick="resetview();" />
+	<!-- <layer name="resetview" style="button" keep="true" html="Reset View" width="80" align="bottom" y="20" onclick="resetview();" /> -->
 	
 	
 		
 	<action name="dollhouse_view">
+		<!-- loadscene(doll-house, null, MERGE|KEEPVIEW|KEEPMOVING, BLEND(1.0)); -->
 		lookto(270,50,90,default,true,true);
 		tween(view.oz|view.tx|view.ty|view.tz,calc(''+1200+'|'+image.ox+'|'+image.oy+'|'+image.oz));
 		set(control.invert,true);
@@ -123,11 +108,17 @@
 	</action>
 
 	<action name="resetview">
+		tween(view.oz, 0.0, 2.0);
 		set(control.invert,false);
+			<!-- set(control.invert,false);
 		tween(view.tx|view.ty|view.tz|view.ox|view.oy|view.oz|view.fisheye,
 			calc(''+image.ox+'|'+image.oy+'|'+image.oz+'|0|0|0|0'),
 			0.5,
 			default
-		);
+		); -->
 </action>
+
+
+
+
 </krpano>

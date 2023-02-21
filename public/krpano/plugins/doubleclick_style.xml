@@ -2,9 +2,9 @@
 	
 	<!--
 		doubleclick_style.xml
-		krpano 1.20
+		krpano 1.21
 	
-		A helper style for single/double click detection for layer and hotspot elements.
+		A helper style for single/double-click detection for layer and hotspot elements.
 		
 		Example:
 		
@@ -21,7 +21,7 @@
 	       clicks="0"
 	       onsingleclick=""
 	       ondoubleclick=""
-	       onclick="doubleclick_style_onclick();"
+	       onclick.addevent="doubleclick_style_onclick();"
 	       />
 
 	<action name="doubleclick_style_onclick">
