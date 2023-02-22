@@ -97,7 +97,8 @@
 	
 	<style name="depthmap_measure3d_marker"
 		type="text"
-		enabled="false"
+		enabled="true"
+		
 		width="9"
 		height="9"
 		bgroundedge="12"

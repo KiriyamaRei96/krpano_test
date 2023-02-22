@@ -5,7 +5,9 @@
 	
 	
 <include url="%VIEWER%/plugins/depthmap_measure3d.xml" />
-		
+<include url="%VIEWER%/plugins/tourEdit.xml" />
+
+
 	<depthmap_navigation collision="true" />
 	
 
