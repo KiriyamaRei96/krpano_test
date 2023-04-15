@@ -169,7 +169,6 @@
 
 	<action name="showtext_do_clipping" scope="private:showtext">
 		if(showtext_clipping,
-			global.layer[showtext_tf].updatepos();
 			copy(tf_px, global.layer[showtext_tf].pixelx);
 			copy(tf_py, global.layer[showtext_tf].pixely);
 			if(tf_px LT 0,

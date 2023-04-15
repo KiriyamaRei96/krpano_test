@@ -97,7 +97,12 @@
 	
 	<style name="depthmap_measure3d_marker"
 		type="text"
+<<<<<<< HEAD
 		enabled="false"
+=======
+		enabled="true"
+		
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 		width="9"
 		height="9"
 		bgroundedge="12"

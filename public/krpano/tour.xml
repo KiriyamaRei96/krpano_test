@@ -72,7 +72,9 @@
 	</action>
 
 	<action name="resetview">
+		tween(view.oz, 0.0, 2.0);
 		set(control.invert,false);
+			<!-- set(control.invert,false);
 		tween(view.tx|view.ty|view.tz|view.ox|view.oy|view.oz|view.fisheye,
 			calc(''+image.ox+'|'+image.oy+'|'+image.oz+'|0|0|0|0'),
 			0.5,

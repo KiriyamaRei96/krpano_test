@@ -18,7 +18,10 @@
 		- Q for moving up
 		- Y or Z for moving down
 		- F for toggling between walking and flying
+<<<<<<< HEAD
 		- C for toggling collision / groundcollision on/off
+=======
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 		
 		Mouse:
 		- Left-Mousebutton: normal looking around / rotating
@@ -28,6 +31,7 @@
 		
 		Settings:
 		- movemode = "walking" or "flying"
+<<<<<<< HEAD
 		- touchmode = "shift" or "move" - the onscreen-touchpad movement mode
 		- speed = movement speed
 		- friction = movement friction
@@ -40,10 +44,19 @@
 		- stopdistance = keep this distance in cm to walls/surfaces
 		- moveback = when hitting a wall, move back x times
 		- bounceback = when hitting a wall, add a bounce movement
+=======
+		- speed = movement speed
+		- friction = movement friction
+		- collision = true or false, collision-detection / stop on walls
+		- collision_stopdistance = keep this distance in cm to walls/surfaces
+		- collision_moveback = when hitting a wall, move back x times
+		- collision_bounceback = when hitting a wall, add a bounce movement
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 	-->
 	
 	<depthmap_navigation
 			movemode="walking"
+<<<<<<< HEAD
 			touchmode="shift"
 			speed.number="0.5"
 			friction.number="0.9"
@@ -56,6 +69,14 @@
 			stopdistance.number="30.0"
 			moveback.number="1.2"
 			bounceback.number="1.6"
+=======
+			speed.number="0.5"
+			friction.number="0.9"
+			collision.bool="true"
+			collision_stopdistance.number="30"
+			collision_moveback.number="1.2"
+			collision_bounceback.number="1.6"
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 			/>
 
 
@@ -63,10 +84,17 @@
 	<control keycodesleft="" keycodesright="" keycodesup="" keycodesdown="" />
 
 	<!-- keyboard keycodes -->
+<<<<<<< HEAD
 	<keyb up="38" down="40" left="37" right="39" w="87" a="65" s="83" d="68" shift="16" ctrl="17" space="32" pageup="33" pagedown="34" />
 	
 	<!-- state variables for walking/flying -->
 	<walkaround forward.int="0" backward.int="0" left.int="0" right.int="0" up.int="0" down.int="0" faster.int="0" jump.int="0" relativespeed.bool="false" />
+=======
+	<keyb up="38" down="40" left="37" right="39" w="87" a="65" s="83" d="68" q="81" y="89" z="90" f="70" shift="16" ctrl="17" space="32" pageup="33" pagedown="34" />
+	
+	<!-- state variables for walking/flying around in the depthmap/3d-model pano -->
+	<walkaround forward="0" backward="0" left="0" right="0" up="0" down="0" faster="0" />
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 	
 	<!-- keyboard event handling -->
 	<events name="depthmap_navigation" keep="true"
@@ -80,11 +108,17 @@
 		  , keycode == keyb.left  OR keycode == keyb.a, copy(walkaround.left,     keypressed);
 		  , keycode == keyb.right OR keycode == keyb.d, copy(walkaround.right,    keypressed);
 		  , keycode == keyb.shift,                      copy(walkaround.faster,   keypressed);
+<<<<<<< HEAD
 		  , keycode == keyb.space,                      copy(walkaround.jump,     keypressed);
 		  , keycode == charcode('F') AND keypressed == 0,         switch(depthmap_navigation.movemode, 'walking', 'flying'); depthmap_showinfo(('Mode: ' + capitalize(depthmap_navigation.movemode)));
 		  , keycode == charcode('C') AND keypressed == 0,         switch(depthmap_navigation.collision); depthmap_showinfo(('Collision: ' + (depthmap_navigation.collision ? 'On' : 'Off')));
 		  , keycode == charcode('Q'),                             copy(walkaround.up,       keypressed);
 		  , keycode == charcode('Y') OR keycode == charcode('Z'), copy(walkaround.down,     keypressed);
+=======
+		  , keycode == keyb.f AND keypressed == 0,      switch(depthmap_navigation.movemode, 'walking', 'flying');
+		  , keycode == keyb.q,                          copy(walkaround.up,       keypressed);
+		  , keycode == keyb.y OR keycode == keyb.z,     copy(walkaround.down,     keypressed);
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 		);
 	</action>
 	
@@ -92,12 +126,19 @@
 	<!-- walking/flying controls -->
 	<action name="depthmap_walkaroundmovement" autorun="onstart" type="Javascript"><![CDATA[
 		
+<<<<<<< HEAD
 		function CLAMP(v,vmin,vmax){ return v < vmin ? vmin : v > vmax ? vmax : v; };
 
 		var mouse = krpano.mouse;
 		var view = krpano.view;
 		var dir = view.dir;
 		var settings = krpano.depthmap_navigation
+=======
+		var mouse = krpano.mouse;
+		var view = krpano.view;
+		var dir = view.dir;
+		var depthmap_navigation = krpano.depthmap_navigation
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 		var walkaround = krpano.walkaround;
 		
 		var vx=0, vy=0, vz=0;
@@ -110,6 +151,7 @@
 		var jumping = false;
 		var lasttick = krpano.timertick;
 		
+<<<<<<< HEAD
 		
 		krpano.actions.renderloop( function()
 		{
@@ -138,6 +180,20 @@
 				friction = adjustedmovment.friction;
 				acceleration = adjustedmovment.accel * friction;
 				inertia = adjustedmovment.inertia;
+=======
+		krpano.actions.renderloop( function()
+		{
+			var webvr = krpano.webvr;
+			var friction = depthmap_navigation.friction;
+			var acceleration = 1.0;
+			
+			// adjust the friction and acceleration depending on the framerate
+			if (krpano.display.getAdaptiveFrictions)
+			{
+				var adjustedmovment = krpano.display.getAdaptiveFrictions(friction, acceleration/friction);
+				friction = adjustedmovment.friction;
+				acceleration = adjustedmovment.accel * friction;
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 			}
 			
 			vx *= friction;
@@ -200,7 +256,11 @@
 							y_axis_scale *= -1.0;
 						}
 						
+<<<<<<< HEAD
 						if (webvr.iswebxr)
+=======
+						if (webvr && webvr.iswebxr)
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 						{
 							// WebXR: axes[0,1] = touchpad, axes[2,3] = thumbstick
 							if ( axes[0] != 0 || axes[1] != 0 )
@@ -279,6 +339,7 @@
 			var wl = Math.sqrt(wx*wx + wz*wz);
 			if (wl > 0)
 			{
+<<<<<<< HEAD
 				if (walkaround.relativespeed)
 				{
 					wl *= acceleration * settings.speed;
@@ -288,6 +349,10 @@
 					// normalize the moving speed
 					wl = acceleration * settings.speed / wl;
 				}
+=======
+				// normalize the moving speed
+				wl = acceleration * depthmap_navigation.speed / wl;
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 				
 				if (walkaround.faster > 0)
 					wl *= 3.0;
@@ -301,7 +366,11 @@
 				}
 				if (wz)
 				{ 
+<<<<<<< HEAD
 					if (settings.movemode == "flying")
+=======
+					if (depthmap_navigation.movemode == "flying")
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 					{
 						vx += wz*lx3;
 						vz += wz*lz3; 
@@ -317,6 +386,7 @@
 			
 			if (do_ground_collision == false)
 			{
+<<<<<<< HEAD
 				// move up or down
 				vy -= 0.5 * acceleration * settings.speed * wy;
 			}
@@ -468,6 +538,65 @@
 			
 			if (rx != 0 && webvr)
 			{
+=======
+				vy -= 0.5 * acceleration * depthmap_navigation.speed * wy;
+			}
+			
+			if ((mouse.leftbutton && mouse.shiftkey) || mouse.middlebutton || mouse.rightbutton)
+			{
+				var is_dollhouse_view = (view.oz > 100);
+				var extrakey = mouse.ctrlkey | mouse.altkey;
+				
+				var dragspeed = (is_dollhouse_view ? 0.1 : 0.05) * acceleration;
+				var dx = -dragspeed * mouse.dx;
+				var dy = (extrakey ^ is_dollhouse_view) ? +dragspeed * mouse.dy : 0;
+				var dz = (extrakey ^ is_dollhouse_view) ? 0 : +dragspeed * mouse.dy;
+				
+				vx += dx*dir.rx + dy*dir.ux + dz*dir.x;
+				vy += dx*dir.ry + dy*dir.uy + dz*dir.y * (depthmap_navigation.movemode == "flying");
+				vz += dx*dir.rz + dy*dir.uz + dz*dir.z;
+			}
+			
+			var vspeed = Math.sqrt(vx*vx + vy*vy + vz*vz);
+			
+			if (vspeed > 0)
+			{
+				// simple collision testing
+				if (depthmap_navigation.collision && view.oz < 200)		// do collision testing only in non-dollhouse-view
+				{
+					var hit = krpano.actions.raycastdepth(view.tx, view.ty, view.tz, vx, vy, vz);
+					if (hit)
+					{
+						if (hit.d > 0 && hit.d < depthmap_navigation.collision_stopdistance)
+						{
+							// slide along walls
+							var vlen = Math.sqrt(vx*vx + vy*vy + vz*vz);
+							if (vlen > 0)
+							{
+								var pushback = -(depthmap_navigation.collision_stopdistance - hit.d) / vlen * depthmap_navigation.collision_moveback;
+								
+								view.tx += pushback * vx;
+								view.ty += pushback * vy;
+								view.tz += pushback * vz;
+								
+								var hitscale = (vx*hit.nx + vy*hit.ny + vz*hit.nz) * depthmap_navigation.collision_bounceback;
+								
+								vx -= hit.nx * hitscale;
+								vy -= hit.ny * hitscale;
+								vz -= hit.nz * hitscale;
+							}
+						}
+					}
+				}
+				
+				view.tx += vx;
+				view.ty += vy;
+				view.tz += vz;
+			}
+			
+			if (rx != 0)
+			{
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 				webvr.hlookatoffset += rx;
 			}
 		});
@@ -478,8 +607,13 @@
 	<!-- some buttons -->
 	
 	<style name="depthmap_button" type="text" css="text-align:center;" padding="4 8" bgborder="0 0xFFFFFF 1" bgroundedge="1" bgshadow="0 1 4 0x000000 1.0" ondown="set(bgcolor, 0xDDDDDD);" onup="set(bgcolor, 0xFFFFFF);" />
+<<<<<<< HEAD
 	<style name="depthmap_info" type="text" css="color:#FFFFFF;text-align:center;" bgalpha="0.0" txtshadow="0 1 4 0x000000 1.0" enabled="false" />
 
+=======
+	<style name="depthmap_info" type="text" css="color:#FFFFFF;text-align:center;" bg="false" txtshadow="0 1 4 0x000000 1.0" enabled="false" />
+	
+>>>>>>> 79dba23514154035090d3a104d0bf188e9058305
 	<layer name="moveup" keep="true" style="depthmap_button" html="▲" align="rightbottom" x="20" y="50" ondown="set(walkaround.up,1);"   onup="set(walkaround.up,0);" />
 	<layer name="movedn" keep="true" style="depthmap_button" html="▼" align="rightbottom" x="20" y="20" ondown="set(walkaround.down,1);" onup="set(walkaround.down,0);" />
 
