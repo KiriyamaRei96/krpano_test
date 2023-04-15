@@ -2,10 +2,8 @@
 	<!--
 		showtext() xml plugin
 		- showtext() and <textstyle> support for HTML5
-		- extended <textstyle> functionality compared to the build-in showtext() action
-		- just include this xml file via: <include url="showtext.xml" />
 		- docu: https://krpano.com/plugins/showtext/
-		- krpano 1.20
+		- krpano 1.21
 	-->
 
 
